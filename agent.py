@@ -263,7 +263,7 @@ class Assistant():
 def chat_with_Anna(query, hotelDoc, chat_history, system_msg):
 #if __name__=="__main__":
     
-    os.environ["OPENAI_API_KEY"] = "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"
+    os.environ["OPENAI_API_KEY"] = "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"
     os.environ["LANGCHAIN_TRACING"] = "false"
     
     retriever = Document(raw_text=hotelDoc, index_name='hotel_momo').as_retriever(top_k=3)
