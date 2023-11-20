@@ -256,7 +256,7 @@ class Assistant():
             ]
         )
         self.chat_history = self.chat_history[-4:]
-        print(self.chat_history)
+        #print(self.chat_history)
         return answer, self.chat_history
 
     
