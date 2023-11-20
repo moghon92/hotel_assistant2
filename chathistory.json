@@ -1,0 +1,44 @@
+[
+  {
+      "ioId": 11,
+      "inputAudioUrl": "https://kalab-dev-ai-voice-assistant-input-audio-files.s3.eu-west-2.amazonaws.com/session14-1695553527939.mp3",
+      "inputText": "Yeah.",
+      "inputDate": "2023-09-24T11:05:38.154Z",
+      "inputTranscriptionJobName": "session14-1695553527939",
+      "outputAudioUrl": null,
+      "outputText": null,
+      "outputDate": null,
+      "sessionId": 14,
+      "hotelId": 6,
+      "createdDate": "2023-09-24T11:05:30.192Z",
+      "updatedDate": "2023-09-24T11:05:39.027Z"
+  },
+  {
+      "ioId": 10,
+      "inputAudioUrl": "https://kalab-dev-ai-voice-assistant-input-audio-files.s3.eu-west-2.amazonaws.com/session14-1695553110148.mp3",
+      "inputText": "What's the cost for parking at the hotel?",
+      "inputDate": "2023-09-24T10:58:39.655Z",
+      "inputTranscriptionJobName": "session14-1695553110148",
+      "outputAudioUrl": "https://kalab-dev-ai-voice-assistant-output-audio-files.s3.eu-west-2.amazonaws.com/session14-io10-1695553122938.mp3",
+      "outputText": "The parking fee is 4 GBP per hour or 16 GBP for 24 hours. We have a parking lot with 20 spaces.",
+      "outputDate": "2023-09-24T10:58:43.807Z",
+      "sessionId": 14,
+      "hotelId": 6,
+      "createdDate": "2023-09-24T10:58:31.875Z",
+      "updatedDate": "2023-09-24T10:58:43.807Z"
+  },
+  {
+      "ioId": 9,
+      "inputAudioUrl": "https://kalab-dev-ai-voice-assistant-input-audio-files.s3.eu-west-2.amazonaws.com/session14-1695553021738.mp3",
+      "inputText": "Are the hotel's parking spaces available on a first-come, first-served basis?",
+      "inputDate": "2023-09-24T10:57:11.032Z",
+      "inputTranscriptionJobName": "session14-1695553021738",
+      "outputAudioUrl": "https://kalab-dev-ai-voice-assistant-output-audio-files.s3.eu-west-2.amazonaws.com/session14-io9-1695553035009.mp3",
+      "outputText": "Yes, the hotel's parking spaces are available on a first-come, first-served basis.",
+      "outputDate": "2023-09-24T10:57:16.032Z",
+      "sessionId": 14,
+      "hotelId": 6,
+      "createdDate": "2023-09-24T10:57:03.507Z",
+      "updatedDate": "2023-09-24T10:57:16.032Z"
+  }
+]
