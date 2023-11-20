@@ -23,8 +23,6 @@ from langchain.agents.format_scratchpad import format_to_openai_functions
 from langchain.agents.output_parsers import OpenAIFunctionsAgentOutputParser
 from langchain.agents import tool, Tool, AgentExecutor
 
-os.environ["OPENAI_API_KEY"] = "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"
-os.environ["LANGCHAIN_TRACING"] = "false"
 
 class Document():
     
