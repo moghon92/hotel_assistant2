@@ -2,7 +2,7 @@
 import os
 import sys
 import json
-from pydantic import BaseModel, Field
+from pydantic.v1 import BaseModel, Field
 
 from langchain.chains import LLMMathChain
 from langchain.chains.llm import LLMChain
