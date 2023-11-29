@@ -23,9 +23,6 @@ from langchain.agents.format_scratchpad import format_to_openai_functions
 from langchain.agents.output_parsers import OpenAIFunctionsAgentOutputParser
 from langchain.agents import tool, Tool, AgentExecutor
 
-os.environ["OPENAI_API_KEY"] = "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"
-os.environ["LANGCHAIN_TRACING"] = "false"
-
 class Document():
     
     def __init__(self, raw_text, index_name, **params):
@@ -269,10 +266,7 @@ class Assistant():
     
 def chat_with_Anna(query, hotelDoc, chat_history, system_msg):
 #if __name__=="__main__":
-    
-    os.environ["OPENAI_API_KEY"] = "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"
-    os.environ["LANGCHAIN_TRACING"] = "false"
-    
+
     retriever = Document(raw_text=hotelDoc, index_name='hotel_momo').as_retriever(top_k=3)
     tools = AssistantTools().tools
 
