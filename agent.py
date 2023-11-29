@@ -2,7 +2,7 @@
 import os
 import sys
 import json
-from pydantic.v1 import BaseModel, Field
+from pydantic import BaseModel, Field
 
 from langchain.chains import LLMMathChain
 from langchain.chains.llm import LLMChain
@@ -23,6 +23,8 @@ from langchain.agents.format_scratchpad import format_to_openai_functions
 from langchain.agents.output_parsers import OpenAIFunctionsAgentOutputParser
 from langchain.agents import tool, Tool, AgentExecutor
 
+os.environ["OPENAI_API_KEY"] = "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"
+os.environ["LANGCHAIN_TRACING"] = "false"
 
 class Document():
     
@@ -132,33 +134,40 @@ class AssistantTools():
         def identify_command(request):
             """Used when the guest wants something, needs something done, or is making a request or If the guest is complaining that something is lost unclean or broken"""
             command_template = '''
-            Given a  guest request, your role is to classify the guest request into one of the following 6 categories:
-            1- "Room Cleaning Request": When guest is requesting to clean the room.
-            2- "New Item Request": When guest is requesting any extra/new items or stating that an item is missing or dirty (towel, soap, shampoo, conditioner, bodycream, pillows, tea, sugar, coffee, toothbrush, ironing board, hairdryer, slippers, etc..).
-            3- "Laundry Request": When the guest requests for laundry to clean their clothes.
-            4- "Key Request": When the guest is requesting new room keys/cards.
-            5- "Fix Item Request": When the guest is requesting to fix a broken item or when something is not working or needs replacement (AC, TV, coffee machine, wifi, lights, toilet, shower, etc..).
-            6- "DEFAULT": When you are unable to classify the guest request in any of the above 5 categories.
+           Given a  guest request, your role is to classify the guest request into one of the following 7 categories:
+           1- "Room Cleaning Request": When guest is requesting to clean the room.
+           2- "New Item Request": When guest is requesting any extra/new items or stating that an item is missing or dirty (towel, soap, shampoo, conditioner, bodycream, pillows, tea, sugar, coffee, toothbrush, ironing board, hairdryer, slippers, etc..).
+           3- "Laundry Request": When the guest requests for laundry to clean their clothes.
+           4- "Late Checkout Request": When the guest requests to check out from the hotel later.
+           5- "Key Request": When the guest is requesting new room keys/cards.
+           6- "Fix Item Request": When the guest is requesting to fix a broken item or when something is not working or needs replacement (AC, TV, coffee machine, wifi, lights, toilet, shower, etc..).
+           7- "DEFAULT": When you are unable to classify the guest request in any of the above 5 categories.
 
-            Remember: the response can only be one of the following 4 options: ["Room Cleaning Request", "New Item Request", "Laundry Request", "DEFAULT"]
+           Remember: the response can only be one of the following 7 options: ["Room Cleaning Request", "New Item Request", "Laundry Request", "Late Checkout Request", "Key Request", "Fix Item Request" , "DEFAULT"]
 
-            <Examples>
-            Request: Please clean my room
-            Response: Room Cleaning Request
+           <Examples>
+           Request: Please clean my room
+           Response: Room Cleaning Request
 
-            Request: my pillows are dirty, i need new pillows.
-            Response: New Item Request
+           Request: my pillows are dirty, i need new pillows.
+           Response: New Item Request
 
-            Request: I need my clothes washed.
-            Response: Laundry Request
+           Request: I need my clothes washed.
+           Response: Laundry Request
 
-            Request: I want to store my bags
-            Response: DEFAULT
+           Request: I forgot my keys. I need a new room card.
+           Response: Key Request
 
-            </Examples>
+           Request: The Fridge is broken. The shower is not working.
+           Response: Fix Item Request
 
-            Request: {input}
-            Response: '''
+           Request: I want to store my bags
+           Response: DEFAULT
+
+           </Examples>
+
+           Request: {input}
+           Response: '''
 
             router_prompt = PromptTemplate(template=command_template, input_variables=["input"])
             commands_chain = LLMChain(llm=self.llm, prompt=router_prompt, verbose=False)
@@ -254,15 +263,15 @@ class Assistant():
             ]
         )
         self.chat_history = self.chat_history[-4:]
-        # print(self.chat_history)
+        #print(self.chat_history)
         return answer, self.chat_history
 
     
 def chat_with_Anna(query, hotelDoc, chat_history, system_msg):
 #if __name__=="__main__":
     
-    # os.environ["OPENAI_API_KEY"] = "sk----"
-    # os.environ["LANGCHAIN_TRACING"] = "false"
+    os.environ["OPENAI_API_KEY"] = "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"
+    os.environ["LANGCHAIN_TRACING"] = "false"
     
     retriever = Document(raw_text=hotelDoc, index_name='hotel_momo').as_retriever(top_k=3)
     tools = AssistantTools().tools
