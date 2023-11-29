@@ -212,3 +212,21 @@ Q: Is the hotel part of a chain?
 A: The hotel is an independent establishment and not part of a chain.
 Q: What&'s the Wi-Fi password for the hotel?
 A: The Wi-Fi password is &quot;ABCDEF123.&quot;
+
+Instructions for shower:
+Pull the center nozzle towards you
+Turn the right nozzle to the left
+Turn the left nozzle to the right
+Click the bottom button and the shower should turn on
+ 
+Temperature Control:
+Click the power button
+Click the home button to choose between fan, AC, and heat
+Click the top arrow to change the temperature
+Click the check button to save
+ 
+
+Instructions for blinds:
+Click the button near your bedside lamp labelled blinds
+You will then see an arrow pointing up and down
+To close blinds select the arrow pointing down. To open blinds select the around pointing up.
